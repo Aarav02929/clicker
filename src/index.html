@@ -5,7 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="./output.css" rel="stylesheet" />
   </head>
-  <body>
-    <h1 class="text-3xl font-bold underline text-blue-900">Hello world!</h1>
+  <body class="">
+    <div id="score" class="text-2xl mx-auto w-fit text-center mt-20">
+      Score: 0
+    </div>
+    <h1 class="text-4xl text-center mt-10 border shadow-lg bg-gray-200 p-5">
+      Click the robux!
+    </h1>
+    <img
+      src="clicker_img.jpeg"
+      alt="img to click"
+      id="clicker"
+      class="cursor-pointer active:scale-95 h-36 w-42 flex items-center justify-center transition-transform inline block mt-10 ml-138"
+    />
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        let score = 0;
+        const scoreDisplay = document.getElementById("score");
+        const clicker = document.getElementById("clicker");
+
+        clicker.addEventListener("click", function (event) {
+          score++;
+          scoreDisplay.textContent = "Score: " + score;
+
+          clicker.classList.add("scale-90");
+          setTimeout(() => clicker.classList.remove("scale-90"), 100);
+        });
+      });
+    </script>
+    <br />
+    <div class="grid grid-cols-3 gap-4 ml-5">
+      <div class="border shadow-lg bg-gray-200 p-5">
+        <span class="block">Upgrade 1</span>
+        <span class="block">Cost: 50</span>
+        <span class="block"></span>
+      </div>
+    </div>
   </body>
 </html>
